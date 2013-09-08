@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database 
+    name="default"
+    namespace="Acme\WikiBundle\Model"
+>
+    <table name="pages">
+        <column 
+            name="id"
+            type="varchar"
+            required="true"
+            primaryKey="true"
+            size="255"
+            primaryString="true"
+        />
+        <column 
+            name="header"
+            type="varchar"
+            size="255"
+            required="true"
+            primaryString="true"
+        />
+        <column 
+            name="body"
+            type="longvarchar"
+            required="false"
+        />
+        <column 
+            name="parent"
+            type="varchar"
+            size="255"
+            required="false"
+        />
+        
+        <index>
+            <index-column name="parent" size="16"/>
+        </index>
+    </table>
+    
+
+
+</database>
