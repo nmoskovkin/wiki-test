@@ -1,0 +1,3 @@
+_pages:
+    pattern:  /
+    defaults: { _controller: AcmeWikiBundle:Pages:index }

@@ -1,0 +1,7 @@
+parameters:
+#    acme_wiki.example.class: Acme\WikiBundle\Example
+
+services:
+#    acme_wiki.example:
+#        class: %acme_wiki.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
