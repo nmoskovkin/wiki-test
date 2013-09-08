@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+
+{% block title %}
+
+{% if page is defined %}
+    {{ page.getHeader() }}
+{% else %}
+Главная страница
+{% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="left-column">
+    <h2>Родительская страница</h2>
+    {% if parentUrl is defined %}
+    <a href="{{ parentUrl }}">{{ parentUrl }}</a>
+    {% else %}
+        <i>нет</i>
+    {% endif %}
+
+
+    <h2>Дочерние страницы</h2>
+
+    <div>
+            {% if not childPagesUrl is empty %}  
+           {% for link in  childPagesUrl %}
+            <a href="{{ link }}">{{ link }}</a><br/><br/>
+           {% endfor %}
+            {% else %}
+            <i>нет</i>
+            {% endif %}
+        </div>
+
+        <h2>Операции</h2>
+       
+       {% if addUrl is defined %}
+        <a href="{{ addUrl }}">Добавить дочернюю</a><br/>
+       {% endif %}
+
+        {% if deleteUrl is defined %}
+        <a onclick="return confirm('Вы действительно хотите удалить статью?'); " href="{{ deleteUrl }}">Удалить текущую</a><br/>
+       {% endif %}
+
+        {% if editUrl is defined %}
+        <a href="{{ editUrl }}">Редактировать текущую</a><br/>
+        {% endif %}
+
+    </div>
+    <div class="right-column">
+{% if page is defined %}
+            <h1>{{ page.getHeader() }}</h1>
+{{ page.getBody() }} 
+{% endif %}
+        </div>
+
+{% endblock %}

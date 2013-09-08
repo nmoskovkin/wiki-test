@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+    Создать новую
+{% endblock %}
+
+{% block body %}
+    
+    
+ <form action="" method="post" {{ form_enctype(form) }} novalidate="novalidate">
+{% if createAction is defined %}
+     <div>
+    {{ form_label(form.id) }}
+    {{ form_widget(form.id) }}
+    {{ form_errors(form.id) }}
+    </div>
+{% endif %}         
+<div>
+    {{ form_label(form.header) }}
+    {{ form_widget(form.header) }}
+    {{ form_errors(form.header) }}
+</div>
+<div>
+    {{ form_label(form.body) }}
+    {{ form_widget(form.body) }}
+    {{ form_errors(form.body) }}
+</div>
+            <div>
+    
+</div>
+
+    {{ form_rest(form) }}
+
+
+    </form>
+{% endblock %}
+    

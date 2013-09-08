@@ -1,3 +1,27 @@
-_pages:
-    pattern:  /
-    defaults: { _controller: AcmeWikiBundle:Pages:index }
+_view_start_page:
+  pattern: /
+  defaults: { _controller: AcmeWikiBundle:Pages:view, path:""  }
+
+_add_page:  
+  pattern: "/{path}"
+  defaults: { _controller: AcmeWikiBundle:Pages:create }
+  requirements:
+    path: "^(.+/)*add"
+
+_edit_page:  
+  pattern: "/{path}"
+  defaults: { _controller: AcmeWikiBundle:Pages:update }
+  requirements:
+    path: "^(.+/)*edit"
+    
+_delete_page:  
+  pattern: "/{path}"
+  defaults: { _controller: AcmeWikiBundle:Pages:delete }
+  requirements:
+    path: "^(.+/)*delete"
+
+_view_page:  
+  pattern: "/{path}"
+  defaults: { _controller: AcmeWikiBundle:Pages:view }
+  requirements:
+    path: "^(.+/)*.+"

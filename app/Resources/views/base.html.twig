@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Test Application{% endblock %}</title>
+        <style type="text/css">
+                body{
+                    padding: 0;
+                    font: 14px sans-serif;
+                }    
+                
+                h2{
+                    font-size: 1.2em;
+                }
+                
+                .left-column{
+                    background: #eee;
+                    width: 250px;
+                    padding: 5px;
+                    float: left;
+                    
+                 }
+                 
+                 .right-column
+                 {
+                     margin-left: 265px;
+                 }
+                 
+                 a:link, a:visited{
+                     color: blue;
+                 }
+                 
+                 form label{
+                     display: block;
+                 }
+                 
+                 form textArea
+                 {
+                     height: 300px;
+                     width: 100%;
+                 }
+                 
+                 form input[type=text]
+                 {
+                     width: 150px;
+                 }
+                 
+        </style>
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div id="content">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>
