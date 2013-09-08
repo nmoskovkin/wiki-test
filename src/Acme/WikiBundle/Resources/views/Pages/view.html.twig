@@ -52,7 +52,7 @@
     <div class="right-column">
 {% if page is defined %}
             <h1>{{ page.getHeader() }}</h1>
-{{ page.getBody() }} 
+            {{ formatedBody|raw}} 
 {% endif %}
         </div>
 

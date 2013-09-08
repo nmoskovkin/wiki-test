@@ -121,10 +121,13 @@ class PagesController extends Controller {
 
             $parentRealId = $parent ? $parent->getId() : null;
             $oldParentRealId = $oldParent ? $oldParent->getId() : null;
+            
 
+            $formatedBody = $page->getFormatedBody($this);
             //
             return $this->render('AcmeWikiBundle:Pages:view.html.twig', array(
                         'page' => $page,
+                        'formatedBody' => $formatedBody,
                         'parentUrl' => $this->_buildViewUrl($oldParentRealId, $parentRealId),
                         'childPagesUrl' => $childPagesUrl,
                         'addUrl' => $this->_buildAppendUrl($requestInfo['parentId'], $requestInfo['pageId']),
@@ -160,9 +163,15 @@ class PagesController extends Controller {
     public function createAction(Request $request) {
 
         $path = $request->get('path');
+        $autoSetId = $request->get('id');
 
         $requestInfo = $this->_requestInfo1($path);
         $formEntity = new Entity\Page();
+        
+        if ($autoSetId)
+            $formEntity->setId ($autoSetId);
+        
+        
         $form = $this->_createForm($formEntity);
         $form->handleRequest($request);
 
